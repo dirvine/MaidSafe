@@ -587,13 +587,13 @@ function(ms_get_target_platform)
   endif()
   if(WIN32)
     # See http://en.wikipedia.org/wiki/Comparison_of_Windows_versions
-    if(CMAKE_SYSTEM_VERSION VERSION_EQUAL 6.2)
+    if(${CMAKE_SYSTEM_VERSION} VERSION_EQUAL 6.2)
       # Windows 8
       set(Platform Win8)
-    elseif(CMAKE_SYSTEM_VERSION VERSION_EQUAL 6.1)
+    elseif(${CMAKE_SYSTEM_VERSION} VERSION_EQUAL 6.1)
       # Windows 7, Windows Server 2008 R2, Windows Home Server 2011
       set(Platform Win7)
-    elseif(CMAKE_SYSTEM_VERSION VERSION_EQUAL 6.0)
+    elseif(${CMAKE_SYSTEM_VERSION} VERSION_EQUAL 6.0)
       # Windows Server 2008
       set(Platform Vista)
     else()
@@ -602,12 +602,12 @@ function(ms_get_target_platform)
   elseif(UNIX)
     if(APPLE)
       # See http://en.wikipedia.org/wiki/Darwin_%28operating_system%29
-      if(CMAKE_SYSTEM_VERSION VERSION_LESS 12)
+      if(${CMAKE_SYSTEM_VERSION} VERSION_LESS 12)
         set(Platform Unsupported)
-      elseif(CMAKE_SYSTEM_VERSION VERSION_LESS 13)
+      elseif(${CMAKE_SYSTEM_VERSION} VERSION_LESS 13)
         # OS X v10.8 "Mountain Lion"
         set(Platform OSX10.8)
-      elseif(CMAKE_SYSTEM_VERSION VERSION_LESS 14)
+      elseif(${CMAKE_SYSTEM_VERSION} VERSION_LESS 14)
         # OS X v10.9 "Mavericks"
         set(Platform OSX10.9)
       else()
